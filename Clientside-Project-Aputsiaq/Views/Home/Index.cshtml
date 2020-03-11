@@ -7,11 +7,216 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../../Content/MyStyleSheet.css" />
     <title>SmartMirror</title>
 </head>
 <body>
-    <div> 
+    <div class="container">
+        <div class="row">
+            <div class="weather col-lg-8">
+                <ul class="col-lg-4 nav nav-pills nav-stacked">
+                    <li id="weather-day1-tab" role="presentation">
+                        <a href="#weather-day1-content" data-toggle="tab" aria-expanded="true" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day1-tab-date"></div>
+                                <div id="weather-day1-tab-temp"></div>
+                                <div id="weather-day1-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day1-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                    <li id="weather-day2-tab" role="presentation">
+                        <a href="#weather-day2-content" data-toggle="tab" aria-expanded="false" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day2-tab-date"></div>
+                                <div id="weather-day2-tab-temp"></div>
+                                <div id="weather-day2-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day2-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                    <li id="weather-day3-tab" role="presentation">
+                        <a href="#weather-day3-content" data-toggle="tab" aria-expanded="false" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day3-tab-date"></div>
+                                <div id="weather-day3-tab-temp"></div>
+                                <div id="weather-day3-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day3-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                    <li id="weather-day4-tab" role="presentation">
+                        <a href="#weather-day4-content" data-toggle="tab" aria-expanded="false" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day4-tab-date"></div>
+                                <div id="weather-day4-tab-temp"></div>
+                                <div id="weather-day4-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day4-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                    <li id="weather-day5-tab" role="presentation">
+                        <a href="#weather-day5-content" data-toggle="tab" aria-expanded="false" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day5-tab-date"></div>
+                                <div id="weather-day5-tab-temp"></div>
+                                <div id="weather-day5-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day5-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                    <li id="weather-day6-tab" role="presentation">
+                        <a href="#weather-day6-content" data-toggle="tab" aria-expanded="false" class="row">
+                            <div class="col-lg-8">
+                                <div id="weather-day6-tab-date"></div>
+                                <div id="weather-day6-tab-temp"></div>
+                                <div id="weather-day6-tab-details"></div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img id="weather-day6-tab-icon" />
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="col-lg-8">
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="weather-day1-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day1-panel-header"></div>
+
+                                <table class="table" id="weather-day1-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="weather-day2-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day2-panel-header"></div>
+
+                                <table class="table" id="weather-day2-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="weather-day3-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day3-panel-header"></div>
+
+                                <table class="table" id="weather-day3-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="weather-day4-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day4-panel-header"></div>
+
+                                <table class="table" id="weather-day4-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="weather-day5-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day5-panel-header"></div>
+
+                                <table class="table" id="weather-day5-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="weather-day6-content">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="weather-day6-panel-header"></div>
+
+                                <table class="table" id="weather-day6-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Temp</th>
+                                            <th>Weather</th>
+                                            <th>Wind</th>
+                                            <th>Precipitation</th>
+                                            <th>Humidity</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="tableTest">
+            <thead>
+                <tr>
+                    <th>temp</th>
+                    <th>description</th>
+                </tr>
+            </thead>
+        </table>
     </div>
+
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../../Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/MyScripts/HomeIndex.js"></script>
 </body>
 </html>
