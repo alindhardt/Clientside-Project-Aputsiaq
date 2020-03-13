@@ -16,8 +16,32 @@
             //alert( "finished" );
         });
 
-    $("#clickTest").click(function () {
-        console.log(forecastData);
+    $("#news-table").DataTable({
+        //autoWidth: false,
+        dom: 't',
+        pageLength: 5,
+        //info: false,
+        //searching: false,
+        language: {
+            emptyTable: "No news found."
+        },
+        ajax: {
+            url: "https://newsapi.org/v2/top-headlines?sortBy=publishedAt&language=en&apiKey=5a86fa9080d244c3bb23a27e64778dd1",
+            dataSrc: "articles"
+        },
+        columns: [
+            {
+                render: function (data, type, row) {
+                    
+                    return "<a class='no-decoration' href='" + row.url + "'>" +
+                        "<div class'thumbnail'>" +
+                        "<img style='max-width: 100%; height:auto;' src='" + row.urlToImage + "'>" +
+                        "<div class='caption'>" +
+                        "<h3>" + row.title + "</h3>" +
+                        "</div</div></a>";
+                }
+            }
+        ]
     });
 });
 
@@ -58,20 +82,19 @@ function handleWeatherData(data) {
     let i = 1;
     weatherForecastDataObjectNames.forEach(function (entry) {
         //insert data to tabs
+
         let weatherSum = summaryOfADaysWeather(weatherForecastData[entry]);
 
         $("#weather-day" + i + "-tab-date").append(days[new Date(weatherSum.day).getDay()]);
         $("#weather-day" + i + "-tab-temp").append(weatherSum.coldest + "°C / " + weatherSum.warmest + "°C");
-        $("#weather-day" + i + "-tab-details").append(weatherSum.weatherDescription);
 
-        $("weather-day" + i + "-tab-icon").removeAttr("src")
-        if (weatherSum.icon) {
-            $("#weather-day" + i + "-tab-icon").attr("src", "http://openweathermap.org/img/wn/" + weatherSum.icon + ".png")
-        }
 
-        console.log(entry);
-        console.log(i);
         //insert data to content
+
+        //headings
+        $("#weather-day" + i + "-panel-header").append(days[new Date(weatherSum.day).getDay()]);
+
+        //tables
         $("#weather-day" + i + "-table").DataTable({
             autoWidth: false,
             paging: false,
@@ -80,16 +103,28 @@ function handleWeatherData(data) {
             data: weatherForecastData[entry],
             columns: [
                 {
-                    data: "dt_txt"
+                    render: function (data, type, row) {
+                        return String(row.dt_txt).substring(10, 16);
+                    }
                 },
                 {
                     data: "main.temp"
                 },
                 {
-                    data: "weather[0].main"
+                    render: function (data, type, row) {
+                        return "<img src='http://openweathermap.org/img/wn/" + row.weather[0].icon + ".png'>"
+                    }
+                    //data: "weather[0].main"
                 },
                 {
-                    data: "wind.speed"
+                    render: function (data, type, row) {
+                        if (row.wind.speed < 0) {
+                            return Math.ceil(row.wind.speed);
+                        }
+
+                        return Math.floor(row.wind.speed);
+                    }
+                    //data: "wind.speed"
                 },
                 {
                     render: function (data, type, row) {
@@ -104,24 +139,6 @@ function handleWeatherData(data) {
         });
         i++;
     });
-
-    console.log(weatherForecastData["2020-03-12"]);
-    $("#tableTest").DataTable({
-        autoWidth: false,
-        paging: false,
-        info: false,
-        searching: false,
-        data: weatherForecastData["2020-03-12"],
-        columns: [
-            {
-                data: "main.temp"
-            },
-            {
-                data: "weather[0].description"
-            }
-        ]
-    });
-    return weatherForecastData;
 }
 
 function summaryOfADaysWeather(weatherArray) {

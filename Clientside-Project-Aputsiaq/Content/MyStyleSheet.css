@@ -1,5 +1,6 @@
 ﻿body {
 }
-ul {
-    list-style-type: none;
+.no-decoration {
+    text-decoration: none;
+    color: black;
 }
